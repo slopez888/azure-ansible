@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    resource_group: Test_Group_Tower
+    name: testVM001
+    offer: CentOS
+
+  tasks:
+  
+  - name: Create virtual machine
+    azure_rm_virtualmachine:
+      resource_group: {{ "resource_group" }}
+      name: {{ "name" }}
+      vm_size: Standard_D1
+      storage_account: testaccount001
+      storage_container: testvm001
+      storage_blob: testvm001.vhd
+      admin_username: admin
+      admin_password: Password!
+      network_interfaces: testnic001
+      image:
+        offer: {{ "offer" }}
+        publisher: OpenLogic
+        sku: '7.5'
+        version: latest
