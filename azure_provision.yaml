@@ -13,15 +13,15 @@
   
   - name: Create virtual machine
     azure_rm_virtualmachine:
-      resource_group: "{{ resource_group }}"
+      #resource_group: "{{ resource_group }}"
       name: "{{ name }}"
       vm_size: Standard_D1
-      storage_account: testaccount001
-      storage_container: testvm001
-      storage_blob: testvm001.vhd
+      #storage_account: testaccount001
+      #storage_container: testvm001
+      #storage_blob: testvm001.vhd
       admin_username: admin
       admin_password: Password!
-      network_interfaces: testnic001
+      #network_interfaces: testnic001
       image:
         offer: "{{ offer }}"
         publisher: OpenLogic
