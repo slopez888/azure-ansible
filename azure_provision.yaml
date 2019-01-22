@@ -2,7 +2,7 @@
 - name: Create an azure instance
   hosts: localhost
   connection: local
-  become: Flase
+  become: False
   gather_facts: False
   vars:
     resource_group: Test_Group_Tower
