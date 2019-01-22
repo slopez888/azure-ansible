@@ -7,7 +7,7 @@
   vars:
     location: westus
     resource_group: Test_Group_Tower
-    vm_name: testVM001
+    vm_name: linuxvm001
     offer: CentOS
 
   tasks:
