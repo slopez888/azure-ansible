@@ -9,6 +9,7 @@
     resource_group: Test_Group_Tower
     vm_name: linuxvm001
     offer: CentOS
+    admin_password: RedP@ssw0rd!
 
   tasks:
 
@@ -20,11 +21,11 @@
           ansible_provisioned: Tower1
           delete: never
      
-  - name: remove account, if it exists
-    azure_rm_storageaccount:
-      resource_group: "{{ resource_group }}"
-      name: "{{ vm_name }}"
-      state: absent
+  #- name: remove account, if it exists
+  #  azure_rm_storageaccount:
+  #    resource_group: "{{ resource_group }}"
+  #    name: "{{ vm_name }}"
+  #    state: absent
 
   - name: Create storage account
     azure_rm_storageaccount:
@@ -80,8 +81,8 @@
       storage_account: "{{ vm_name }}"
       storage_container: testvm001
       storage_blob: testvm001.vhd
-      admin_username: admin
-      admin_password: Password!
+      admin_username: devops
+      admin_password: "{{ admin_password }}"
       network_interfaces: testnic001
       image:
         offer: "{{ offer }}"
