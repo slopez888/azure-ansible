@@ -10,8 +10,8 @@
   
   - name: Create virtual machine
     azure_rm_virtualmachine:
-      resource_group: {{ "resource_group" }}
-      name: {{ "name" }}
+      resource_group: "{{ resource_group }}"
+      name: "{{ name }}"
       vm_size: Standard_D1
       storage_account: testaccount001
       storage_container: testvm001
@@ -20,7 +20,7 @@
       admin_password: Password!
       network_interfaces: testnic001
       image:
-        offer: {{ "offer" }}
+        offer: "{{ offer }}"
         publisher: OpenLogic
         sku: '7.5'
         version: latest
