@@ -9,6 +9,7 @@
     resource_group: Resource_Group_Tower
     vm_name: linuxvm001
     offer: CentOS
+    publisher: 
     admin_password: RedP@ssw0rd!
 
   tasks:
@@ -86,6 +87,6 @@
       network_interfaces: "{{ vm_name }}"
       image:
         offer: "{{ offer }}"
-        publisher: OpenLogic
+        publisher: "{{ publisher }}"
         sku: '7.5'
         version: latest
