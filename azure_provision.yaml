@@ -6,7 +6,7 @@
   gather_facts: False
   vars:
     location: westus
-    resource_group: Test_Group_Tower
+    resource_group: Resource_Group_Tower
     vm_name: linuxvm001
     offer: CentOS
     admin_password: RedP@ssw0rd!
@@ -36,7 +36,7 @@
   - name: Create virtual network
     azure_rm_virtualnetwork:
       resource_group: "{{ resource_group }}"
-      name: testvn001
+      name: "{{ vm_name }}"
       address_prefixes: "10.10.0.0/16"
   
   - name: Add subnet
@@ -50,12 +50,12 @@
     azure_rm_publicipaddress:
       resource_group: "{{ resource_group }}"
       allocation_method: Static
-      name: publicip001
+      name: "{{ vm_name }}"
   
   - name: Create security group that allows SSH
     azure_rm_securitygroup:
       resource_group: "{{ resource_group }}"
-      name: secgroup001
+      name: "{{ vm_name }}"
       rules:
         - name: SSH
           protocol: Tcp
@@ -67,11 +67,11 @@
   - name: Create NIC
     azure_rm_networkinterface:
       resource_group: "{{ resource_group }}"
-      name: testnic001
+      name: "{{ vm_name }}"
       virtual_network: testvn001
       subnet: subnet001
-      public_ip_name: publicip001
-      security_group: secgroup001
+      public_ip_name: "{{ vm_name }}"
+      security_group: "{{ vm_name }}"
   
   - name: Create virtual machine
     azure_rm_virtualmachine:
@@ -79,11 +79,11 @@
       name: "{{ vm_name }}"
       vm_size: Standard_D1
       storage_account: "{{ vm_name }}"
-      storage_container: testvm001
-      storage_blob: testvm001.vhd
+      storage_container: "{{ vm_name }}"
+      storage_blob: '"{{ vm_name}}".vhd'
       admin_username: devops
       admin_password: "{{ admin_password }}"
-      network_interfaces: testnic001
+      network_interfaces: "{{ vm_name }}"
       image:
         offer: "{{ offer }}"
         publisher: OpenLogic
