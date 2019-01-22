@@ -1,5 +1,9 @@
 ---
-- hosts: localhost
+- name: Create an azure instance
+  hosts: localhost
+  connection: local
+  become: Flase
+  gather_facts: False
   vars:
     resource_group: Test_Group_Tower
     name: testVM001
