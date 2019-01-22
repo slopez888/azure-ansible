@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  become: yes
   vars:
     resource_group: Test_Group_Tower
     name: testVM001
