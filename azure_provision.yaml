@@ -19,6 +19,12 @@
       tags:
           ansible_provisioned: Tower1
           delete: never
+     
+  - name: remove account, if it exists
+    azure_rm_storageaccount:
+      resource_group: "{{ resource_group }}"
+      name: storageaccount001
+      state: absent
 
   - name: Create storage account
     azure_rm_storageaccount:
