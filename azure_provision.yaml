@@ -5,11 +5,20 @@
   become: False
   gather_facts: False
   vars:
+    location: westus
     resource_group: Test_Group_Tower
     vm_name: testVM001
     offer: CentOS
 
   tasks:
+
+  - name: Create a resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+      tags:
+          ansible_provisioned: Tower1
+          delete: never
 
   - name: Create storage account
     azure_rm_storageaccount:
