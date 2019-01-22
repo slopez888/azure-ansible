@@ -23,13 +23,13 @@
   - name: remove account, if it exists
     azure_rm_storageaccount:
       resource_group: "{{ resource_group }}"
-      name: storageaccount001
+      name: "{{ vm_name }}"
       state: absent
 
   - name: Create storage account
     azure_rm_storageaccount:
       resource_group: "{{ resource_group }}"
-      name: storageaccount001
+      name: "{{ vm_name }}"
       account_type: Standard_LRS
 
   - name: Create virtual network
