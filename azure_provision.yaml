@@ -77,7 +77,7 @@
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
       vm_size: Standard_D1
-      storage_account: storageaccount001
+      storage_account: "{{ vm_name }}"
       storage_container: testvm001
       storage_blob: testvm001.vhd
       admin_username: admin
