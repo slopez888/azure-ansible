@@ -23,7 +23,7 @@
   - name: Create storage account
     azure_rm_storageaccount:
       resource_group: "{{ resource_group }}"
-      name: testaccount001
+      name: storageaccount001
       account_type: Standard_LRS
 
   - name: Create virtual network
@@ -71,7 +71,7 @@
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
       vm_size: Standard_D1
-      storage_account: testaccount001
+      storage_account: storageaccount001
       storage_container: testvm001
       storage_blob: testvm001.vhd
       admin_username: admin
