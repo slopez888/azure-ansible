@@ -7,6 +7,7 @@
   vars:
     location: westus
     resource_group: Resource_Group_Tower
+    vm_size: 
     vm_name: linuxvm001
     offer: CentOS
     publisher: 
@@ -78,7 +79,7 @@
     azure_rm_virtualmachine:
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
-      vm_size: Standard_D1
+      vm_size: "{{ vm_size }}" #Standard_D1
       storage_account: "{{ vm_name }}"
       storage_container: "{{ vm_name }}"
       storage_blob: "{{ vm_name }}.vhd"
