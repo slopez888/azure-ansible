@@ -65,6 +65,12 @@
           access: Allow
           priority: 101
           direction: Inbound
+        - name: HTTPS
+          protocol: Tcp
+          destination_port_range: 443
+          access: Allow
+          priority: 102
+          direction: Inbound
   
   - name: Create NIC
     azure_rm_networkinterface:
