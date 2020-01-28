@@ -95,5 +95,5 @@
       image:
         offer: "{{ offer }}"
         publisher: "{{ publisher }}"
-        sku: '7.5'
+        sku: '7.7'
         version: latest
