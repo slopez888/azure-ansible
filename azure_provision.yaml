@@ -54,7 +54,7 @@
       allocation_method: Static
       name: "{{ vm_name }}"
   
-  - name: Create security group that allows SSH
+  - name: Create security group that allows SSH and HTTPS
     azure_rm_securitygroup:
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
