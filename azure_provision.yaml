@@ -11,7 +11,7 @@
     vm_name: linuxvm001
     offer: CentOS
     publisher: 
-    admin_password: RedP@ssw0rd!
+    admin_password:
 
   tasks:
 
